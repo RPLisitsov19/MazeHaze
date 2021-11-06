@@ -5,7 +5,6 @@
 #include "constants.h"
 using namespace std;
 
-
 const char WIDTH_EASY = 10, HEIGHT_EASY = 10;
 const char WIDTH_MEDIUM = 20, HEIGHT_MEDIUM = 20;
 const char WIDTH_HARD = 30, HEIGHT_HARD = 30;
@@ -162,7 +161,8 @@ void mazeMedium() {
 }
 
 void mazeHard() {
-    unsigned char maze[HEIGHT_HARD][WIDTH_HARD] = {
+    maze = new unsigned char* [HEIGHT_HARD];
+    unsigned char model[HEIGHT_HARD][WIDTH_HARD] = {
   {'+', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'},    //0
   {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //1
   {'+', '-', '-', '-', '-', '+', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '+', ' ', ' ', ' ', '|'},    //2
@@ -194,4 +194,25 @@ void mazeHard() {
   {'|', ' ', ' ', '|', ' ', ' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', 'X', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|' },    //28
   {'+', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'} };  //29
   //0    1    2    3    4    5    6    7    8    9    10    11    12    13    14    15   16    17  18   19   20  21  22  23  24   25   26  27   28   29
+
+    for (int i = 0; i < HEIGHT_HARD; i++) {
+        maze[i] = new unsigned char[WIDTH_HARD];
+        for (int j = 0; j < WIDTH_HARD; j++) {
+            maze[i][j] = model[i][j];
+        }
+    }
+    while (action != 'q' || 'Q') {
+
+        maze[posX][posY] = player;
+
+        for (int y = 0; y < HEIGHT_HARD; y++) {
+            cout << endl;
+
+            for (int x = 0; x < WIDTH_HARD; x++) {
+                cout << maze[y][x];
+            }
+        }
+
+        playerAction();
+    }
 }
