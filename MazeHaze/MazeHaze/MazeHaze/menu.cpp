@@ -79,12 +79,8 @@ void chooseMenuOption(int choice) {
 	case 1: {
 		system("cls");
 		displayTitle();
-
 		mazes();
 
-		cout << endl;
-		cout << "2. How to play" << endl;
-		cout << "3. Exit" << endl;
 		break;
 	}
 
@@ -92,31 +88,23 @@ void chooseMenuOption(int choice) {
 		system("cls");
 		displayTitle();
 
-		cout << "1. Maze levels" << endl;
-		cout << "2. How to play" << endl;
+		cout << "How to play";
 		cout << " * Use the arrow keys to explore the maze." << endl;
 		cout << " * Get to the 'X' to clear the level." << endl;
-		cout << endl;
-		cout << "3. Exit" << endl;
+		cout << "Press any key to go back" << endl;
+
+		int key = _getch();
+		system("cls");
+		displayTitle();
+		showMenuOptions();
 		break;
 	}
 
 	case 3: {
 		system("cls");
-		displayTitle();
-
-		cout << "1. Maze levels" << endl;
-		cout << "2. How to play" << endl;
-		cout << "3. Exit" << endl;
 		cout << "Exiting program..." << endl;
+
 		break;
 	}
-
-	default: {
-		cout << "Incorrect input!" << endl;
-		break;
-	}
-
 	}
 }
-
