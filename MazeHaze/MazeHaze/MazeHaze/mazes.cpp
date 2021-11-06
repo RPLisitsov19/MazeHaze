@@ -6,18 +6,19 @@
 using namespace std;
 
 
-const char WIDTH1 = 10, HEIGHT1 = 10;
-const char WIDTH2 = 20, HEIGHT2 = 20;
-const char WIDTH3 = 30, HEIGHT3 = 30;
+const char WIDTH_EASY = 10, HEIGHT_EASY = 10;
+const char WIDTH_MEDIUM = 20, HEIGHT_MEDIUM = 20;
+const char WIDTH_HARD = 30, HEIGHT_HARD = 30;
 
 unsigned char player = '*';
 int posX = 1, posY = 1;
 int action;
 
+unsigned char** maze = NULL;
+
 void playerAction() {
     action = _getch();
 
-    unsigned char maze[30][30];
     int prevposX = posX;
     int prevposY = posY;
 
@@ -72,7 +73,8 @@ void playerAction() {
 }
 
 void mazeEasy() {
-    unsigned char maze[HEIGHT1][WIDTH1] = {
+    maze = new unsigned char* [HEIGHT_EASY];
+    unsigned char model[HEIGHT_EASY][WIDTH_EASY] = {
       {'+', '-', '-', '-', '-', '-', '-', '-', '-', '+'},    //0
       {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //1
       {'+', '-', '-', '-', '+', ' ', ' ', ' ', ' ', '|'},    //3
@@ -86,26 +88,33 @@ void mazeEasy() {
     };
     //0    1    2    3    4    5    6    7    8    9 
 
-    /* 
+    for (int i = 0; i < HEIGHT_EASY; i++) {
+        maze[i] = new unsigned char[WIDTH_EASY];
+        for (int j = 0; j < WIDTH_EASY; j++) {
+            maze[i][j] = model[i][j];
+        }
+    }
+
+    
     while (action != 'q' || 'Q') {
 
         maze[posX][posY] = player;
 
-        for (int y = 0; y < HEIGHT1; y++) {
+        for (int y = 0; y < HEIGHT_EASY; y++) {
             cout << endl;
 
-            for (int x = 0; x < WIDTH1; x++) {
+            for (int x = 0; x < WIDTH_EASY; x++) {
                 cout << maze[y][x];
             }
         }
 
         playerAction();
     }
-    */
+    
 }
 
 void mazeMedium() {
-    unsigned char maze[HEIGHT2][WIDTH2] = {
+    unsigned char maze[HEIGHT_MEDIUM][WIDTH_MEDIUM] = {
   {'+', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'},    //0
   {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //1
   {'+', '-', '-', '-', '-', '+', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //2
@@ -130,7 +139,7 @@ void mazeMedium() {
 }
 
 void mazeHard() {
-    unsigned char maze[HEIGHT3][WIDTH3] = {
+    unsigned char maze[HEIGHT_HARD][WIDTH_HARD] = {
   {'+', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'},    //0
   {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //1
   {'+', '-', '-', '-', '-', '+', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '+', ' ', ' ', ' ', '|'},    //2
