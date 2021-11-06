@@ -2,13 +2,9 @@
 #include <conio.h>
 #include "menu.h"
 #include "mazes.h"
-
+#include "constants.h"
 using namespace std;
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
 
 const char WIDTH1 = 10, HEIGHT1 = 10;
 const char WIDTH2 = 20, HEIGHT2 = 20;
@@ -167,4 +163,3 @@ void mazeHard() {
   {'+', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'} };  //29
   //0    1    2    3    4    5    6    7    8    9    10    11    12    13    14    15   16    17  18   19   20  21  22  23  24   25   26  27   28   29
 }
-
