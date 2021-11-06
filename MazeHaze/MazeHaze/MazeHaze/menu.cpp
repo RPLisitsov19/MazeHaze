@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include "menu.h"
 #include "mazes.h"
-
+#include "constants.h"
 using namespace std;
 
 void displayTitle() {
@@ -17,26 +17,56 @@ void displayTitle() {
 	cout << endl;
 }
 
+void printChecked(string label, bool checked) {
+	cout << (checked ? "-> " : "") << label << endl;
+}
+
 void showMenuOptions() {
-	cout << "1. Maze levels" << endl;
-	cout << "2. How to play" << endl;
-	cout << "3. Exit" << endl;
-	cout << endl;
-	cout << "Enter your choice: " << endl;
+	int state = 1;
+	int action = 0;
+	while (action != 13) {
+		if (action == KEY_UP && state > 1) {
+			state--;
+		}
+		if (action == KEY_DOWN && state < 3) {
+			state++;
+		}
+		printChecked("Maze levels", state == 1);
+
+		printChecked("How to play", state == 2);
+
+		printChecked("Exit", state == 3);
+
+		action = _getch();
+		system("cls");
+
+		displayTitle();
+	}
+	chooseMenuOption(state);
 }
 
 void mazes() {
-	int lvl;
+	int state = 1;
+	int action = 0;
+	while (action != 13) {
+		if (action == KEY_UP && state > 1) {
+			state--;
+		}
+		if (action == KEY_DOWN && state < 3) {
+			state++;
+		}
+		printChecked("Easy (10 x 10)", state == 1);
 
-	cout << "1. Maze levels" << endl;
-	cout << "   1) Easy (10 x 10)" << endl;
-	cout << "   2) Medium (20 x 20)" << endl;
-	cout << "   3) Hard (30 x 30)" << endl;
+		printChecked("Medium (20 x 20)", state == 2);
 
-	cout << "Choose a level: " << endl;
-	cin >> lvl;
+		printChecked("Hard (30 x 30)", state == 3);
 
-	switch (lvl) {
+		action = _getch();
+		system("cls");
+
+		displayTitle();
+	}
+	switch (state) {
 	case 1: { system("cls"); mazeEasy(); break; }
 	case 2: { system("cls"); mazeMedium(); break; }
 	case 3: { system("cls"); mazeHard(); break; }
