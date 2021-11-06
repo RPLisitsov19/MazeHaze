@@ -4,17 +4,10 @@
 #include "mazes.h"
 using namespace std;
 
-
-
 int main() {
 
 	displayTitle();
 
 	showMenuOptions();
-
-	int choice;
-	cin >> choice;
-
-	chooseMenuOption(choice);
 
 }
