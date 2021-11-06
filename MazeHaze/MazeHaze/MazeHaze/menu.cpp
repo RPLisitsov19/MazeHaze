@@ -18,7 +18,7 @@ void displayTitle() {
 }
 
 void printChecked(string label, bool checked) {
-	cout << (checked ? "-> " : "") << label << endl;
+	cout << (checked ? " >" : " ") << label << endl;
 }
 
 void showMenuOptions() {
@@ -31,11 +31,11 @@ void showMenuOptions() {
 		if (action == KEY_DOWN && state < 3) {
 			state++;
 		}
-		printChecked("Maze levels", state == 1);
+		printChecked(" Maze levels", state == 1);
 
-		printChecked("How to play", state == 2);
+		printChecked(" How to play", state == 2);
 
-		printChecked("Exit", state == 3);
+		printChecked(" Exit", state == 3);
 
 		action = _getch();
 		system("cls");
@@ -55,11 +55,11 @@ void mazes() {
 		if (action == KEY_DOWN && state < 3) {
 			state++;
 		}
-		printChecked("Easy (10 x 10)", state == 1);
+		printChecked(" Easy (10 x 10)", state == 1);
 
-		printChecked("Medium (20 x 20)", state == 2);
+		printChecked(" Medium (20 x 20)", state == 2);
 
-		printChecked("Hard (30 x 30)", state == 3);
+		printChecked(" Hard (30 x 30)", state == 3);
 
 		action = _getch();
 		system("cls");
@@ -88,7 +88,7 @@ void chooseMenuOption(int choice) {
 		system("cls");
 		displayTitle();
 
-		cout << "How to play";
+		cout << "How to play" << endl;
 		cout << " * Use the arrow keys to explore the maze." << endl;
 		cout << " * Get to the 'X' to clear the level." << endl;
 		cout << "Press any key to go back" << endl;
