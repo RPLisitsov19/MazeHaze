@@ -114,7 +114,8 @@ void mazeEasy() {
 }
 
 void mazeMedium() {
-    unsigned char maze[HEIGHT_MEDIUM][WIDTH_MEDIUM] = {
+    maze = new unsigned char* [HEIGHT_MEDIUM];
+    unsigned char model[HEIGHT_MEDIUM][WIDTH_MEDIUM] = {
   {'+', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'},    //0
   {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //1
   {'+', '-', '-', '-', '-', '+', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},    //2
@@ -136,6 +137,28 @@ void mazeMedium() {
   {'|', ' ', 'X', ' ', ' ', ' ',' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', '|' },    //18
   {'+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '+', '-', '-', '+'} };  //19
   //0    1    2    3    4    5    6    7    8    9    10    11    12    13    14    15   16    17    18    19
+
+    for (int i = 0; i < HEIGHT_MEDIUM; i++) {
+        maze[i] = new unsigned char[WIDTH_MEDIUM];
+        for (int j = 0; j < WIDTH_MEDIUM; j++) {
+            maze[i][j] = model[i][j];
+        }
+
+    }
+    while (action != 'q' || 'Q') {
+
+        maze[posX][posY] = player;
+
+        for (int y = 0; y < HEIGHT_MEDIUM; y++) {
+            cout << endl;
+
+            for (int x = 0; x < WIDTH_MEDIUM; x++) {
+                cout << maze[y][x];
+            }
+        }
+
+        playerAction();
+    }
 }
 
 void mazeHard() {
