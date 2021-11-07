@@ -4,7 +4,7 @@
 Hello there! <br> You're currently looking at our repository for this year's first GitHub sprint at VSCPI-Burgas. This time we were challenged with the task of making different mazes entirely using the C++ programming language. <b> Have fun playing! </b> <br>
 
 # How To Download :arrow_down:
-Download the app from [GitHub](https://github.com/RPLisitsov19/MazeHaze) by pressing the green clone button.
+Download the app from [GitHub](https://github.com/RPLisitsov19/MazeHaze) by pressing the green <b>Code</b> button.
 
 # The Team :v:
 * Radoslav Lisitsov - Scrum Trainer [RPLisitsov19@codingburgas.bg]
