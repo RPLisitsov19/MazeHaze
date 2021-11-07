@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "mazes.h"
 #include "constants.h"
+
 using namespace std;
 
 const char WIDTH_EASY = 10, HEIGHT_EASY = 10;
@@ -18,6 +19,7 @@ unsigned char** maze = NULL;
 void clearLevel() {
     if (maze[posX][posY] == 'X') {
         cout << "Congrats! You cleared the level!" << endl;
+        exit(1);
     }
 }
 
