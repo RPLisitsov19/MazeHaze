@@ -70,7 +70,6 @@ void mazes() {
 	case 1: { system("cls"); mazeEasy(); break; }
 	case 2: { system("cls"); mazeMedium(); break; }
 	case 3: { system("cls"); mazeHard(); break; }
-	default: { cout << "Incorrect input!"; break; }
 	}
 }
 
